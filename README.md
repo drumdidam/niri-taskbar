@@ -1,5 +1,9 @@
 # Niri Taskbar (for Waybar)
 
+> **Note:** This is a maintained fork of
+> [LawnGnome/niri-taskbar](https://github.com/LawnGnome/niri-taskbar),
+> which is no longer actively developed.
+
 This provides a [Waybar][waybar] taskbar for [Niri][niri].
 
 The main shift from the builtin `wlr/taskbar` module is that windows are always
@@ -8,33 +12,65 @@ windows are ordered by creation time, at least as of Waybar 0.12.0).
 
 ![Example screenshot](images/screenshot.png)
 
+## Compatibility
+
+Each niri-taskbar release is built against a specific Niri version:
+
+| niri-taskbar | niri  |
+|--------------|-------|
+| 0.5.x        | 26.04 |
+| 0.4.x        | 25.11 |
+
+If you're on an older version of Niri, use the matching older release of
+niri-taskbar.
+
 ## Installation
 
-If you package niri-taskbar for another distro/OS, please let me know and I'll
-update the README.
+If you package niri-taskbar for another distro/OS, please [open an
+issue][issues] and the README will be updated.
 
 ### Arch Linux
 
 @coreymwamba has kindly packaged this as [the `waybar-niri-taskbar` package in
-the AUR][aur].
+the AUR][aur]. Note that the AUR package may still point to the original
+repository rather than this fork.
 
 ### From source
 
 Users of other distributions and OSes will need to build from source.
 
-At the moment, this needs to built from source.
-distro, let me know and I'll update the README.)
-
 ### Requirements
 
 - Rust 1.87.0 or later
-- Niri (with a version corresponding to the version in the `niri-taskbar` crate
-  version; eg `0.4.0+niri-25.11` is specifically for Niri 25.11)
+- Niri 26.04. Each release is built for a specific Niri version, which is shown
+  in the version string: for example, `0.5.0+niri.26.04` is for Niri 26.04. See
+  [Compatibility](#compatibility) for older Niri versions.
 - Gtk+ 3 (including the development package on distros that separate those out)
 - Waybar 0.12.0 (or any version that's API compatible with 0.12, which will
   _probably_ include later versions, but I have no actual knowledge there)
 
+#### Build dependencies
+
+On Fedora:
+
+```bash
+$ sudo dnf install gtk3-devel rust cargo
+```
+
+On Arch Linux:
+
+```bash
+$ sudo pacman -S gtk3 rust
+```
+
 ### Building
+
+Clone the repository:
+
+```bash
+$ git clone https://github.com/drumdidam/niri-taskbar.git
+$ cd niri-taskbar
+```
 
 The standard Rust build process should work fine:
 
@@ -175,6 +211,7 @@ demonstrated above, you could add a border highlight like so:
 ```
 
 [aur]: https://aur.archlinux.org/packages/waybar-niri-taskbar
+[issues]: https://github.com/drumdidam/niri-taskbar/issues
 [cffi]: https://github.com/Alexays/Waybar/wiki/Module:-CFFI
 [niri]: https://github.com/YaLTeR/niri
 [style]: https://github.com/Alexays/Waybar/wiki/Styling
