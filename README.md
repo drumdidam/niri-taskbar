@@ -29,6 +29,15 @@ niri-taskbar.
 If you package niri-taskbar for another distro/OS, please [open an
 issue][issues] and the README will be updated.
 
+### Fedora
+
+Packages for Fedora are available from
+[COPR](https://copr.fedorainfracloud.org/coprs/drumdidam/niri-taskbar/):
+
+```bash
+$ sudo dnf copr enable drumdidam/niri-taskbar
+$ sudo dnf install niri-taskbar
+```
 ### Arch Linux
 
 @coreymwamba has kindly packaged this as [the `waybar-niri-taskbar` package in
