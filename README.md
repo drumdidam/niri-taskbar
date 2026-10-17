@@ -38,6 +38,11 @@ Packages for Fedora are available from
 $ sudo dnf copr enable drumdidam/niri-taskbar
 $ sudo dnf install niri-taskbar
 ```
+
+The module is installed to `/usr/lib64/niri-taskbar/libniri_taskbar.so`. Use
+that path as `module_path` in your Waybar config (see
+[Configuration](#configuration)).
+
 ### Arch Linux
 
 @coreymwamba has kindly packaged this as [the `waybar-niri-taskbar` package in
